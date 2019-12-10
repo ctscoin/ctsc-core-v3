@@ -51,4 +51,4 @@ Furthermore, as result of offering multiple ways for users to mint new CTSC coin
 #
 
 ### More information at [https://ctscoin.net](https://ctscoin.net)
-### Join our [Discord!](https://discord.gg/vB9KgNc)
+### Join our [Discord!](https://discord.gg/QS4QJn8)
