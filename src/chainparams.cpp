@@ -54,21 +54,38 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //   (no blocks before with a timestamp after, none after with
 //    timestamp before)
 // + Contains no strange transactions
+// height, hash
+// CTSC: 2018-11-02 17:43:21 UpdateTip: new best=0000022a395f7e7f9d5c0842144d85f7ec9cee0646be2afe82d9747d32fce8c6  height=350  log2_work=30.298571  tx=398  date=2018-11-02 17:43:21 progress=1.000000  cache=21
+// CTSC: 2018-11-02 22:06:38 UpdateTip: new best=74cac5790bfb5a0991a1e93233436358a2eab4f0fd8564d2af32397f38687340  height=775  log2_work=42.210303  tx=1111  date=2018-11-02 22:07:23 progress=1.000234  cache=663
+// CTSC: 2018-11-03 03:57:19 UpdateTip: new best=e3f27cf0eef836e8872521430a60b5a153d6639fdd09575847fee7a0d004541e  height=1250  log2_work=54.302405  tx=2061  date=2018-11-03 03:57:36 progress=1.000048  cache=21
+// CTSC: 2018-11-03 16:53:13 UpdateTip: new best=d083d834a2180c4745742233d6f4e2281432bf5b84b78bc4c9009f589bb8c229  height=2025  log2_work=56.739531  tx=3615  date=2018-11-03 16:53:50 progress=1.000059  cache=39
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (   0, uint256("0x00000650aaea7384d7c1576f59777f391f924195ae21fd23e5348c921315226b"))
     ( 350, uint256("0x0000022a395f7e7f9d5c0842144d85f7ec9cee0646be2afe82d9747d32fce8c6"))
     ( 775, uint256("0x74cac5790bfb5a0991a1e93233436358a2eab4f0fd8564d2af32397f38687340"))
     (1250, uint256("0xe3f27cf0eef836e8872521430a60b5a153d6639fdd09575847fee7a0d004541e"))
-    (2025, uint256("0xd083d834a2180c4745742233d6f4e2281432bf5b84b78bc4c9009f589bb8c229"));
+    (2025, uint256("0xd083d834a2180c4745742233d6f4e2281432bf5b84b78bc4c9009f589bb8c229"))
+    (25000, uint256("0xf44bb4e64b3b43aa4af7fa6835065132aa7982abaf917399f75e97008e9b300f"))
+    (100000, uint256("0x6e49d1f090824c8e04a09050c2fe2adf23c60d6f5face85fcff29317ffdebd88"))
+    (250000, uint256("0xd30bf86791c3035ac425b38b1d8f377da53cb35636ac4f8a2e02f36a8dc4dfc2"))
+    (400000, uint256("0xae797d0d710c5c73c8dd5fb47c3a420005eea382fe2999e843dab8c4a04cbc90"))
+    (500000, uint256("0xa464d1b95ae54bce0fafdbbdee16ef5819d8cf1425deebd4657caaca0c4be44e"))
+    (575000, uint256("0x295064f6331eb4dd765f248177546acff0ac7866d252b471dbabe36e329e5947"))
+    (576610, uint256("0xb3e8b1ff0d993c7d3bc80c14180e4b78cf5fc467fd8ff2c94b305af93dbf7553"))
 
+    // TODO: Add more recent checkpoints after reward and dev fund blocks...
+    // (610000, uint256("0x"))
+    // (620000, uint256("0x"))
+    ;
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1541264030,     // * UNIX timestamp of last checkpoint block (the date=)
-    3615,              // * total number of transactions between genesis and last checkpoint
+    // TODO: Update the date and trx #
+    1576059270,     // * UNIX timestamp of last checkpoint block (the date=)
+    1189641,        // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
-    250             // * estimated number of transactions per day after checkpoint
+    1000            // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =

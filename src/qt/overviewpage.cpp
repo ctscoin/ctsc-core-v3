@@ -363,24 +363,23 @@ void OverviewPage::SetLinks()
     ui->labelLinks6->setText("Github:");
     ui->labelLinks7->setText("Whitepaper:");
 
-    ui->labelLinksUrl1->setText("<a href=\"https://www.ctscoin.net\">https://www.ctscoin.net</a>");
+    ui->labelLinksUrl1->setText("<a href=\"https://ctscoin.net\">https://ctscoin.net</a>");
     ui->labelLinksUrl2->setText("<a href=\"https://platform.ctscoin.net\">https://platform.ctscoin.net</a>");
     ui->labelLinksUrl3->setText("<a href=\"http://explorer.ctscoin.net\">http://explorer.ctscoin.net</a>");
     ui->labelLinksUrl4->setText("<a href=\"https://discord.gg/eUUgrkr\">https://discord.gg/eUUgrkr</a>");
-    ui->labelLinksUrl5->setText("<a href=\"https://twitter.com/CTSCOIN\">https://twitter.com/CTSCOIN</a>");
-    ui->labelLinksUrl6->setText("<a href=\"https://github.com/ctscoin/ctsc-core\">https://github.com/ctscoin/ctsc-core</a>");
+    ui->labelLinksUrl5->setText("<a href=\"https://twitter.com/CTSCoin\">https://twitter.com/CTSCoin</a>");
+    ui->labelLinksUrl6->setText("<a href=\"https://github.com/ctscoin/ctsc-core-v3\">https://github.com/ctscoin/ctsc-core-v3</a>");
     ui->labelLinksUrl7->setText("<a href=\"https://ctscoin.net/static/files/whitepaper_v1.pdf\">https://ctscoin.net/static/files/whitepaper_v1.pdf</a>");
 }
 
 void OverviewPage::updateNewsList()
 {
-    // TODO: Uncomment once newsfeed url is setup...
-    // ui->labelNewsStatus->setVisible(true);
+    ui->labelNewsStatus->setVisible(true);
 
-    // xml.clear();
+    xml.clear();
 
-    // QUrl url(NEWS_URL);
-    // newsGet(url);
+    QUrl url(NEWS_URL);
+    newsGet(url);
 }
 
 void OverviewPage::newsGet(const QUrl &url)

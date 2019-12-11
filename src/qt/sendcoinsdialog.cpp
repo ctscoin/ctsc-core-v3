@@ -60,6 +60,9 @@ SendCoinsDialog::SendCoinsDialog(QWidget* parent) : QDialog(parent, Qt::WindowSy
     connect(ui->splitBlockLineEdit, SIGNAL(textChanged(const QString&)), this, SLOT(splitBlockLineEditChanged(const QString&)));
 
     // CTSC specific
+
+    ui->pushButton->setText(tr("Use After Fee"));
+
     QSettings settings;
     if (!settings.contains("bUseSwiftTX"))
         settings.setValue("bUseSwiftTX", false);
@@ -924,5 +927,20 @@ void SendCoinsDialog::coinControlUpdateLabels()
         ui->labelCoinControlAutomaticallySelected->show();
         ui->widgetCoinControl->hide();
         ui->labelCoinControlInsuffFunds->hide();
+    }
+}
+
+void SendCoinsDialog::on_pushButton_clicked()
+{
+    //grab the amount in Coin Control After Fee field
+    QString qAfterFee = ui->labelCoinControlAfterFee->text().left(ui->labelCoinControlAfterFee->text().indexOf(" ")).replace("~", "").simplified().replace(" ", "");
+
+    //convert to CAmount
+    CAmount nAfterFee;
+    ParseMoney(qAfterFee.toStdString().c_str(), nAfterFee);
+
+    SendCoinsEntry* entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(0)->widget());
+    if (entry) {
+        entry->setAmount(nAfterFee);
     }
 }
