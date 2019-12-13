@@ -18,6 +18,9 @@ NewsItem::NewsItem(QWidget* parent,QDateTime pubDate,QString url,QString title,Q
     author(author),
     description(description)
 {
+
+    if (title == "" || url == "") return;
+
     ui->setupUi(this);
 
     ui->newsTitle->setText(QString("<a href=\"") + url + QString("\">") + title + QString("</a>"));

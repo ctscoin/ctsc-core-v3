@@ -33,6 +33,7 @@
 #define NUM_NEWS 4
 
 #define NEWS_URL "https://rfc.ctscoin.net/category/news/feed/"
+#define NEWS_COUNT 10
 
 extern CWallet* pwalletMain;
 
@@ -438,7 +439,9 @@ void OverviewPage::parseXml()
     QString descriptionString;
 
     bool insideItem = false;
+    int numItems = 0;
 
+    // clear current feed items
     for(int i = 0; i < ui->listNews->count(); ++i)
     {
         delete ui->listNews->takeItem(i);
@@ -446,6 +449,7 @@ void OverviewPage::parseXml()
 
     while (!xml.atEnd()) {
         xml.readNext();
+
         if (xml.isStartElement()) {
             currentTag = xml.name().toString();
 
@@ -460,6 +464,11 @@ void OverviewPage::parseXml()
             }
         } else if (xml.isEndElement()) {
             if (xml.name() == "item") {
+                
+                numItems++;
+
+                if (numItems >= NEWS_COUNT) { break; }
+
                 QDateTime qdt = QDateTime::fromString(pubDateString,Qt::RFC2822Date);
 
                 bool found = false;
@@ -511,7 +520,9 @@ void OverviewPage::parseXml()
                     descriptionString += xml.text().toString();
             }
         }
+
     }
+
     if (xml.error() && xml.error() != QXmlStreamReader::PrematureEndOfDocumentError) {
         qWarning() << "XML ERROR:" << xml.lineNumber() << ": " << xml.errorString();
     }

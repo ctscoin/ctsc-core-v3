@@ -72,7 +72,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
     (400000, uint256("0xae797d0d710c5c73c8dd5fb47c3a420005eea382fe2999e843dab8c4a04cbc90"))
     (500000, uint256("0xa464d1b95ae54bce0fafdbbdee16ef5819d8cf1425deebd4657caaca0c4be44e"))
     (575000, uint256("0x295064f6331eb4dd765f248177546acff0ac7866d252b471dbabe36e329e5947"))
-    (576610, uint256("0xb3e8b1ff0d993c7d3bc80c14180e4b78cf5fc467fd8ff2c94b305af93dbf7553"))
+    (594375, uint256("0xd5685d5fb651918ab478a7db893a88f54645cc3d17fdc04f5f24499a9071bb39"))
 
     // TODO: Add more recent checkpoints after reward and dev fund blocks...
     // (610000, uint256("0x"))
