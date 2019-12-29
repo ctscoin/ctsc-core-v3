@@ -158,7 +158,7 @@ public:
         nLastPOWBlock                  = 500;
         nModifierUpdateBlock           = 1; // we use the version 2 for CTSC
 
-        nStartTreasuryBlock            = 600001;
+        nStartTreasuryBlock            = 900001;
         nTreasuryBlockStep             = 1 * 24 * 60 * 60 / nTargetSpacingPOS; // paid once per day
         vCommunityFundWallet           = "TpE1o3R8kW54jAGBJmKBgoKYpQVdHKrFoD";
 

@@ -10,9 +10,9 @@ CONFIGFOLDER='/root/.ctsc'
 COIN_DAEMON='ctscd'
 COIN_CLI='ctsc-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://github.com/ctscoin/ctsc-core-v3/releases/download/v3.1.1/CTSC-v3.1.1-linux-x86_64.tar.gz'
-COIN_BOOTSTRAP='https://staticfiles.ctscoin.net/bootstrap/ctsc-bootstrap.zip'
-BOOTSTRAP_ZIP='ctsc-bootstrap.zip'
+COIN_TGZ='https://github.com/ctscoin/ctsc-core-v3/releases/download/v3.1.2/CTSC-v3.1.2-linux-x86_64.tar.gz'
+COIN_BOOTSTRAP='https://staticfiles.ctscoin.net/bootstrap/ctsc-bootstrap-311.zip'
+BOOTSTRAP_ZIP='ctsc-bootstrap-311.zip'
 #$(echo $COIN_BOOTSTRAP | awk -F'/' '{print $NF}')
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='CTSC'
