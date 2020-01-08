@@ -24,7 +24,7 @@ using namespace boost;
 // Don't ever reuse these IDs for other sporks - This would result in old clients getting confused about which spork is for what
 
 #define SPORK_START                                     10001
-#define SPORK_END                                       10022
+#define SPORK_END                                       10023
                                                         
 #define SPORK_2_SWIFTTX                                 10001
 #define SPORK_3_SWIFTTX_BLOCK_FILTERING                 10002
