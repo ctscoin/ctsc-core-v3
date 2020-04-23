@@ -155,7 +155,7 @@ OverviewPage::OverviewPage(QWidget* parent) : QWidget(parent),
     // init "out of sync" warning labels
     ui->labelWalletStatus->setText("(" + tr("out of sync") + ")");
     ui->labelTransactionsStatus->setText("(" + tr("out of sync") + ")");
-    ui->labelNewsStatus->setText("(" + tr("out of sync") + ")");
+    // ui->labelNewsStatus->setText("(" + tr("out of sync") + ")");
 
     connect(&manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(newsFinished(QNetworkReply*)));
 
@@ -164,11 +164,11 @@ OverviewPage::OverviewPage(QWidget* parent) : QWidget(parent),
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
 
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(updateNewsList()));
-    timer->setInterval(5 * 1000); // 1st shot after 5 seconds
-    timer->setSingleShot(true);
-    timer->start();
+    // timer = new QTimer(this);
+    // connect(timer, SIGNAL(timeout()), this, SLOT(updateNewsList()));
+    // timer->setInterval(5 * 1000); // 1st shot after 5 seconds
+    // timer->setSingleShot(true);
+    // timer->start();
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex& index)
