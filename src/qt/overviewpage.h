@@ -42,15 +42,15 @@ public:
     void setWalletModel(WalletModel* walletModel);
     void showOutOfSyncWarning(bool fShow);
 
-public Q_SLOTS:
-    void updateNewsList();
+/* public Q_SLOTS:
+    void updateNewsList(); */
 
 public slots:
     void setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance);
-    void newsFinished(QNetworkReply *reply);
-    void newsReadyRead();
-    void newsMetaDataChanged();
-    void newsError(QNetworkReply::NetworkError);
+    // void newsFinished(QNetworkReply *reply);
+    // void newsReadyRead();
+    // void newsMetaDataChanged();
+    // void newsError(QNetworkReply::NetworkError);
 
 signals:
     void transactionClicked(const QModelIndex& index);
@@ -71,8 +71,8 @@ private:
     TxViewDelegate* txdelegate;
     TransactionFilterProxy* filter;
 
-    void parseXml();
-    void newsGet(const QUrl &url);
+    // void parseXml();
+    // void newsGet(const QUrl &url);
 
     QXmlStreamReader xml;
 

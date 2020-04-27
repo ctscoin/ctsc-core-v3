@@ -150,7 +150,7 @@ OverviewPage::OverviewPage(QWidget* parent) : QWidget(parent),
 
     connect(ui->listTransactions, SIGNAL(clicked(QModelIndex)), this, SLOT(handleTransactionClicked(QModelIndex)));
 
-    ui->listNews->setSortingEnabled(true);
+    //ui->listNews->setSortingEnabled(true);
 
     // init "out of sync" warning labels
     ui->labelWalletStatus->setText("(" + tr("out of sync") + ")");
@@ -373,166 +373,166 @@ void OverviewPage::SetLinks()
     ui->labelLinksUrl7->setText("<a href=\"https://ctscoin.net/static/files/whitepaper_v1.pdf\">https://ctscoin.net/static/files/whitepaper_v1.pdf</a>");
 }
 
-void OverviewPage::updateNewsList()
-{
-    ui->labelNewsStatus->setVisible(true);
+// void OverviewPage::updateNewsList()
+// {
+//     ui->labelNewsStatus->setVisible(true);
 
-    xml.clear();
+//     xml.clear();
 
-    QUrl url(NEWS_URL);
-    newsGet(url);
-}
+//     QUrl url(NEWS_URL);
+//     newsGet(url);
+// }
 
-void OverviewPage::newsGet(const QUrl &url)
-{
-    QNetworkRequest request(url);
+// void OverviewPage::newsGet(const QUrl &url)
+// {
+//     QNetworkRequest request(url);
 
-    if (currentReply) {
-        currentReply->disconnect(this);
-        currentReply->deleteLater();
-    }
+//     if (currentReply) {
+//         currentReply->disconnect(this);
+//         currentReply->deleteLater();
+//     }
 
-    currentReply = manager.get(request);
+//     currentReply = manager.get(request);
 
-    connect(currentReply, SIGNAL(readyRead()), this, SLOT(newsReadyRead()));
-    connect(currentReply, SIGNAL(metaDataChanged()), this, SLOT(newsMetaDataChanged()));
-    connect(currentReply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(newsError(QNetworkReply::NetworkError)));
-}
+//     connect(currentReply, SIGNAL(readyRead()), this, SLOT(newsReadyRead()));
+//     connect(currentReply, SIGNAL(metaDataChanged()), this, SLOT(newsMetaDataChanged()));
+//     connect(currentReply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(newsError(QNetworkReply::NetworkError)));
+// }
 
-void OverviewPage::newsMetaDataChanged()
-{
-    QUrl redirectionTarget = currentReply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
-    if (redirectionTarget.isValid()) {
-        newsGet(redirectionTarget);
-    }
-}
+// void OverviewPage::newsMetaDataChanged()
+// {
+//     QUrl redirectionTarget = currentReply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
+//     if (redirectionTarget.isValid()) {
+//         newsGet(redirectionTarget);
+//     }
+// }
 
-void OverviewPage::newsReadyRead()
-{
-    int statusCode = currentReply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+// void OverviewPage::newsReadyRead()
+// {
+//     int statusCode = currentReply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
-    if (statusCode >= 200 && statusCode < 300) {
-        QByteArray data = currentReply->readAll();
-        xml.addData(data);
-        parseXml();
-    }
-}
+//     if (statusCode >= 200 && statusCode < 300) {
+//         QByteArray data = currentReply->readAll();
+//         xml.addData(data);
+//         parseXml();
+//     }
+// }
 
-void OverviewPage::newsFinished(QNetworkReply *reply)
-{
-    Q_UNUSED(reply);
+// void OverviewPage::newsFinished(QNetworkReply *reply)
+// {
+//     Q_UNUSED(reply);
 
-    ui->labelNewsStatus->setVisible(false);
+//     ui->labelNewsStatus->setVisible(false);
 
-    // Timer Activation for the news refresh
-    timer->setInterval(5 * 60 * 1000); // every 5 minutes
-    timer->start();
-}
+//     // Timer Activation for the news refresh
+//     timer->setInterval(5 * 60 * 1000); // every 5 minutes
+//     timer->start();
+// }
 
-void OverviewPage::parseXml()
-{
-    QString currentTag;
-    QString linkString;
-    QString titleString;
-    QString pubDateString;
-    QString authorString;
-    QString descriptionString;
+// void OverviewPage::parseXml()
+// {
+//     QString currentTag;
+//     QString linkString;
+//     QString titleString;
+//     QString pubDateString;
+//     QString authorString;
+//     QString descriptionString;
 
-    bool insideItem = false;
-    int numItems = 0;
+//     bool insideItem = false;
+//     int numItems = 0;
 
-    // clear current feed items
-    for(int i = 0; i < ui->listNews->count(); ++i)
-    {
-        delete ui->listNews->takeItem(i);
-    }
+//     // clear current feed items
+//     for(int i = 0; i < ui->listNews->count(); ++i)
+//     {
+//         delete ui->listNews->takeItem(i);
+//     }
 
-    while (!xml.atEnd()) {
-        xml.readNext();
+//     while (!xml.atEnd()) {
+//         xml.readNext();
 
-        if (xml.isStartElement()) {
-            currentTag = xml.name().toString();
+//         if (xml.isStartElement()) {
+//             currentTag = xml.name().toString();
 
-            if (xml.name() == "item")
-            {
-                insideItem = true;
-                titleString.clear();
-                pubDateString.clear();
-                authorString.clear();
-                descriptionString.clear();
-                linkString = xml.attributes().value("rss:about").toString();
-            }
-        } else if (xml.isEndElement()) {
-            if (xml.name() == "item") {
+//             if (xml.name() == "item")
+//             {
+//                 insideItem = true;
+//                 titleString.clear();
+//                 pubDateString.clear();
+//                 authorString.clear();
+//                 descriptionString.clear();
+//                 linkString = xml.attributes().value("rss:about").toString();
+//             }
+//         } else if (xml.isEndElement()) {
+//             if (xml.name() == "item") {
                 
-                numItems++;
+//                 numItems++;
 
-                if (numItems >= NEWS_COUNT) { break; }
+//                 if (numItems >= NEWS_COUNT) { break; }
 
-                QDateTime qdt = QDateTime::fromString(pubDateString,Qt::RFC2822Date);
+//                 QDateTime qdt = QDateTime::fromString(pubDateString,Qt::RFC2822Date);
 
-                bool found = false;
+//                 bool found = false;
 
-                for(int i = 0; i < ui->listNews->count(); ++i)
-                {
-                    NewsItem * item = (NewsItem *)(ui->listNews->itemWidget(ui->listNews->item(i)));
-                    if( item->pubDate == qdt )
-                    {
-                        found = true;
-                        break;
-                    }
-                }
+//                 for(int i = 0; i < ui->listNews->count(); ++i)
+//                 {
+//                     NewsItem * item = (NewsItem *)(ui->listNews->itemWidget(ui->listNews->item(i)));
+//                     if( item->pubDate == qdt )
+//                     {
+//                         found = true;
+//                         break;
+//                     }
+//                 }
 
-                if( !found )
-                {
-                    NewsWidgetItem *widgetItem = new NewsWidgetItem(ui->listNews);
-                    widgetItem->setData(Qt::UserRole,qdt);
+//                 if( !found )
+//                 {
+//                     NewsWidgetItem *widgetItem = new NewsWidgetItem(ui->listNews);
+//                     widgetItem->setData(Qt::UserRole,qdt);
 
-                    ui->listNews->addItem(widgetItem);
+//                     ui->listNews->addItem(widgetItem);
 
-                    NewsItem *newsItem = new NewsItem(this,qdt,linkString,titleString,authorString,descriptionString);
+//                     NewsItem *newsItem = new NewsItem(this,qdt,linkString,titleString,authorString,descriptionString);
 
-                    widgetItem->setSizeHint( newsItem->sizeHint() );
+//                     widgetItem->setSizeHint( newsItem->sizeHint() );
 
-                    ui->listNews->setItemWidget( widgetItem, newsItem );
-                }
+//                     ui->listNews->setItemWidget( widgetItem, newsItem );
+//                 }
 
-                titleString.clear();
-                linkString.clear();
-                pubDateString.clear();
-                authorString.clear();
-                descriptionString.clear();
+//                 titleString.clear();
+//                 linkString.clear();
+//                 pubDateString.clear();
+//                 authorString.clear();
+//                 descriptionString.clear();
 
-                insideItem = false;
-            }
+//                 insideItem = false;
+//             }
 
-        } else if (xml.isCharacters() && !xml.isWhitespace()) {
-            if (insideItem) {
-                if (currentTag == "title")
-                    titleString += xml.text().toString();
-                else if (currentTag == "link")
-                    linkString += xml.text().toString();
-                else if (currentTag == "pubDate")
-                    pubDateString += xml.text().toString();
-                else if (currentTag == "creator")
-                    authorString += xml.text().toString();
-                else if (currentTag == "description")
-                    descriptionString += xml.text().toString();
-            }
-        }
+//         } else if (xml.isCharacters() && !xml.isWhitespace()) {
+//             if (insideItem) {
+//                 if (currentTag == "title")
+//                     titleString += xml.text().toString();
+//                 else if (currentTag == "link")
+//                     linkString += xml.text().toString();
+//                 else if (currentTag == "pubDate")
+//                     pubDateString += xml.text().toString();
+//                 else if (currentTag == "creator")
+//                     authorString += xml.text().toString();
+//                 else if (currentTag == "description")
+//                     descriptionString += xml.text().toString();
+//             }
+//         }
 
-    }
+//     }
 
-    if (xml.error() && xml.error() != QXmlStreamReader::PrematureEndOfDocumentError) {
-        qWarning() << "XML ERROR:" << xml.lineNumber() << ": " << xml.errorString();
-    }
-}
+//     if (xml.error() && xml.error() != QXmlStreamReader::PrematureEndOfDocumentError) {
+//         qWarning() << "XML ERROR:" << xml.lineNumber() << ": " << xml.errorString();
+//     }
+// }
 
-void OverviewPage::newsError(QNetworkReply::NetworkError)
-{
-    qWarning("error retrieving RSS feed");
+// void OverviewPage::newsError(QNetworkReply::NetworkError)
+// {
+//     qWarning("error retrieving RSS feed");
 
-    currentReply->disconnect(this);
-    currentReply->deleteLater();
-    currentReply = 0;
-}
+//     currentReply->disconnect(this);
+//     currentReply->deleteLater();
+//     currentReply = 0;
+// }
