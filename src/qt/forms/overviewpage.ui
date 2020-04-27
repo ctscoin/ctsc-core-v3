@@ -637,148 +637,8 @@
                     </layout>
                    </widget>
                   </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_right" stretch="1,0">
-               <item>
-                <widget class="QFrame" name="frame_RecentTransactions">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0">
+                  
                   <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_2">
-                    <item>
-                     <widget class="QLabel" name="label_4">
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>12</pointsize>
-                        <weight>75</weight>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Recent transactions</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="labelTransactionsStatus">
-                      <property name="cursor">
-                       <cursorShape>WhatsThisCursor</cursorShape>
-                      </property>
-                      <property name="toolTip">
-                       <string>The displayed information may be out of date. Your wallet automatically synchronizes with the CTSC network after a connection is established, but this process has not completed yet.</string>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QLabel { color: red; }</string>
-                      </property>
-                      <property name="text">
-                       <string notr="true">(out of sync)</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <spacer name="horizontalSpacer_Transaction">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <widget class="Line" name="line_Transactions">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>1</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>1</height>
-                     </size>
-                    </property>
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QListView" name="listTransactions">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QListView { background: transparent; }</string>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::NoFrame</enum>
-                    </property>
-                    <property name="verticalScrollBarPolicy">
-                     <enum>Qt::ScrollBarAlwaysOff</enum>
-                    </property>
-                    <property name="horizontalScrollBarPolicy">
-                     <enum>Qt::ScrollBarAlwaysOff</enum>
-                    </property>
-                    <property name="selectionMode">
-                     <enum>QAbstractItemView::NoSelection</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer_2">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeType">
-                     <enum>QSizePolicy::Expanding</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
                 <widget class="QFrame" name="frame_Links">
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
@@ -1069,6 +929,148 @@
                      <number>3</number>
                     </property>
                    </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_right" stretch="1,0">
+               <item>
+                <widget class="QFrame" name="frame_RecentTransactions">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_2">
+                    <item>
+                     <widget class="QLabel" name="label_4">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Recent transactions</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="labelTransactionsStatus">
+                      <property name="cursor">
+                       <cursorShape>WhatsThisCursor</cursorShape>
+                      </property>
+                      <property name="toolTip">
+                       <string>The displayed information may be out of date. Your wallet automatically synchronizes with the CTSC network after a connection is established, but this process has not completed yet.</string>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QLabel { color: red; }</string>
+                      </property>
+                      <property name="text">
+                       <string notr="true">(out of sync)</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_Transaction">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="Line" name="line_Transactions">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>1</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>1</height>
+                     </size>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QListView" name="listTransactions">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QListView { background: transparent; }</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="verticalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                    <property name="horizontalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOff</enum>
+                    </property>
+                    <property name="selectionMode">
+                     <enum>QAbstractItemView::NoSelection</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_2">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Expanding</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
                   </item>
                  </layout>
                 </widget>
