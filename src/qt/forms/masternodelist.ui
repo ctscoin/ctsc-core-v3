@@ -242,7 +242,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="tabAllMasternodes">
+       <!-- <widget class="QWidget" name="tabAllMasternodes">
         <attribute name="title">
          <string>All Masternodes</string>
         </attribute>
@@ -385,7 +385,7 @@
           </layout>
          </item>
         </layout>
-       </widget>
+       </widget> -->
       </widget>
      </item>
     </layout>
