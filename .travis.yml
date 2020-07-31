@@ -39,6 +39,7 @@ deploy:
   api_key: $OAUTH
   file: "$RELEASE_FILE"
   skip_cleanup: true
+  draft: true
   on:
     tags: true
 jobs:
